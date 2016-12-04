@@ -70,8 +70,5 @@ Agent.prototype.accumForce = function ()
 		}
 	}
 	
-
-	
-	
 	this.force.copy (sum);
 }
