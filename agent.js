@@ -70,36 +70,7 @@ Agent.prototype.accumForce = function ()
 		}
 	}
 	
-	var vhat = this.vel.clone().normalize();
-	tmp.subVectors (ob2.center, this.pos); // c-p
-	var tll = tmp.dot(vhat);
 
-	if (tll > 0 && tll < REACH) {
-		vhat.multiplyScalar (tll);
-		var tperp = new THREE.Vector3();
-		tperp.subVectors (tmp, vhat);
-		if (tperp.length() < ob2.size+this.size) {
-			tperp.negate();
-			sum.add (tperp);
-			console.log ("hit", tperp);
-		}
-	}
-
-
-	var vhat = this.vel.clone().normalize();
-	tmp.subVectors (ob3.center, this.pos); // c-p
-	var tll = tmp.dot(vhat);
-
-	if (tll > 0 && tll < REACH) {
-		vhat.multiplyScalar (tll);
-		var tperp = new THREE.Vector3();
-		tperp.subVectors (tmp, vhat);
-		if (tperp.length() < ob3.size+this.size) {
-			tperp.negate();
-			sum.add (tperp);
-			console.log ("hit", tperp);
-		}
-	}
 	
 	
 	this.force.copy (sum);
